@@ -1,6 +1,7 @@
 package lu.lllc;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AddProduct
+ * Servlet implementation class City
  */
 @WebServlet("/City")
 public class City extends HttpServlet {
@@ -23,7 +24,11 @@ public class City extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		String name = request.getParameter("name");
+		
+		out.print("welcome to "+name);
 		
 	}
 
