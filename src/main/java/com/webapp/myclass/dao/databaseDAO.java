@@ -15,17 +15,16 @@ public class databaseDAO {
 //		data.setCity("Bilaspur");
 //		data.setCountry_id("101");
 		
-	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila?autoReconnect=true&useSSL=false","mohan","system");
+		    Connection con = DriverManager.getConnection("jdbc:mysql://jws-app-mysql:3306/root","system","system");
 		   Statement stmt = con.createStatement();
 		   ResultSet rs = stmt.executeQuery("select * from city where city='"+city+"'");
 		   if(rs.next())
 		  {
-				data.setCity_id(rs.getInt("city_id"));
-				data.setCity(rs.getString("city"));
-				data.setCountry_id(rs.getString("country_id"));
+				data.setCity_id(rs.getInt("id"));
+				data.setCity(rs.getString("name"));
+				data.setCountry_id(rs.getString("country"));
 				
 		   }
 		}
